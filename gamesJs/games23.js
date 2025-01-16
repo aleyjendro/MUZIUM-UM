@@ -263,7 +263,7 @@ $(function () {
     });
 
     // tell the user their score, we'll use the heretofore hidden #score_container div for that.
-    $("#game_container_23 #score_container #score_text").html(
+    $("#game_container_23 #score_container #score_text_23").html(
       'You got <span class="score">' +
         $correctcounter +
         "</span> out of 3 correct!"
