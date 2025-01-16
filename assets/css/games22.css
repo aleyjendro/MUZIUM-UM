@@ -100,14 +100,14 @@
   align-items: center; /* Ensures the button is vertically aligned */
 }
 
-#game22_container #button_container {
+#game22_container #button_container_22 {
 	display: flex;
     width: 1000px;
     justify-content: flex-end;
     padding-top: 20px;
 }
 
-#button_container input {
+#button_container_22 input {
 	margin: 0 10px;
     padding: 0 10px;
 }
