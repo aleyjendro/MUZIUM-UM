@@ -565,7 +565,7 @@ p {
 }
 
 .modal-dialog-scrollable .modal-body {
-	background-image: url('../img/interactive/bg-landing-plain.jpg');
+	background-image: url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-landing-plain.jpg');
 	background-size: cover;
   	background-position: center;
 }
@@ -594,7 +594,7 @@ p {
   display:flex;
   align-items:center;
   justify-content:center;
-  background-image: url('../img/interactive/bg-intro-wells.jpg');
+  background-image: url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-intro-wells.jpg');
   background-size: cover;
   background-position: center;
 /*   background: #ece4d1; */
@@ -1432,7 +1432,7 @@ a:hover {
 /* GAMES PAGE */
 
 .landing {
-  background-image: url('../img/interactive/bg-home-game.jpg');
+  background-image: url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-home-game.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -1450,7 +1450,7 @@ a:hover {
 /* TEXT ANIM */
 
 .intro-game {
-  background-image: url('../img/interactive/bg-intro-game.jpg');
+  background-image: url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-intro-game.jpg');
   background-size: cover;
   background-position: center;
   position: fixed;
@@ -1608,7 +1608,7 @@ a:hover {
 
 .preloader {
   z-index: 998;
-  background-image: url('../img/interactive/bg-home-game.jpg');
+  background-image: url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-home-game.jpg');
   background-size: cover;
   background-position: center;
   -webkit-transform-origin: top;
