@@ -13,7 +13,7 @@
 	font-size: 22px;
 }
 
-#game_container_22 {
+#game22_container {
 	width: 100%;
     /* margin: 0; */
     /* padding: 0; */
@@ -21,26 +21,26 @@
     /* padding-top: 40px; */
 }
 
-#game_container_22 #draggable_container_22, #game_container_22 #droppable_container_22, #game_container_22 #score_container {
+#game22_container #draggable_container_22, #game22_container #droppable_container_22, #game22_container #score_container_22 {
 	    /* border: 1px solid #999; */
     width: 1000px;
     margin-bottom: 20px;
 }
 
-#game_container_22 #draggable_container_22 {
+#game22_container #draggable_container_22 {
 /* 	min-height: 125px; */
     position: relative;
 }
 
-#game_container_22 #droppable_container_22 {
+#game22_container #droppable_container_22 {
 /* 	height: 242px; */
 }
 
-#game_container_22 #score_container {
+#game22_container #score_container_22 {
 /*	height: 80px;*/
 }
 
-#game_container_22 .dragthis, #game_container_22 .dropped, #game_container_22 .correct, #game_container_22 .incorrect {
+#game22_container .dragthis, #game22_container .dropped, #game22_container .correct, #game22_container .incorrect {
 	text-align: center;
     cursor: move;
     background: linear-gradient(90deg, rgba(195, 133, 47, 1) 0%, rgba(253, 230, 126, 1) 17%, rgba(193, 147, 60, 1) 72%, rgba(139, 76, 10, 1) 86%, rgba(170, 115, 7, 1) 100%);
@@ -59,7 +59,7 @@
     background-clip: padding-box;
 }
 
-#game_container_22 .dropped, #game_container_22 .correct, #game_container_22 .incorrect {
+#game22_container .dropped, #game22_container .correct, #game22_container .incorrect {
 	width: 188px;
     margin: 5px 0 5px 0;
     font-weight: 700;
@@ -67,13 +67,13 @@
     float: right;
 }
 
-#game_container_22 #draggable_container_22 div.ui-sortable-helper {
+#game22_container #draggable_container_22 div.ui-sortable-helper {
 	-webkit-box-shadow: 3px 3px 5px 0px #333; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
 	box-shadow: 3px 3px 5px 0px #333; /* Opera 10.5, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
 	-moz-box-shadow:    3px 3px 5px 0px #333;
 }
 
-#game_container_22 #droppable_container_22 div.subcontainer {
+#game22_container #droppable_container_22 div.subcontainer {
 	display: flex;
     align-items: center;
     justify-content: space-between;
@@ -100,7 +100,7 @@
   align-items: center; /* Ensures the button is vertically aligned */
 }
 
-#game_container_22 #button_container {
+#game22_container #button_container {
 	display: flex;
     width: 1000px;
     justify-content: flex-end;
@@ -112,19 +112,19 @@
     padding: 0 10px;
 }
 
-#game_container_22 .correct {
+#game22_container .correct {
 	border: 1px solid #393;
 	background: linear-gradient(90deg, #8BC34A 0%, #4CAF50 17%, #388E3C 72%, #2E7D32 86%, #7CB342 100%);
     color: #fff;
 }
 
-#game_container_22 .incorrect {
+#game22_container .incorrect {
 	border: 1px solid #933;
 	background: linear-gradient(90deg, #F44336 0%, #D32F2F 17%, #E91E63 72%, #AD1457 86%, #F06292 100%);
     color: #fff;
 }
 
-#game_container_22 #score_container, #game_container_22 #message {
+#game22_container #score_container_22, #game22_container #message {
 	background: #ffffff;
     text-align: center;
     color: #e8a620;	
@@ -135,11 +135,11 @@
 	line-height: 1em;
 }
 
-#game_container_22 #score_container #score_text {
+#game22_container #score_container_22 #score_text {
 	padding: 20px;
 }
 
-#game_container_22 #message {
+#game22_container #message {
 	display: flex;
 	position: absolute;
 	border: 1px solid #333;
@@ -151,11 +151,11 @@
 	-moz-box-shadow: 3px 3px 5px 0px #333;
 }
 
-#game_container_22 #message #text {
+#game22_container #message #text {
 	padding-bottom: 10px;
 }
 
-#game_container_22 #score_container .score {
+#game22_container #score_container_22 .score {
 	font-weight: bold;
 }
 
