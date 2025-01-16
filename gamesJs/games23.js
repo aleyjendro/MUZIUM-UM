@@ -1,273 +1,532 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Get the preloader element
-  const preloader = document.querySelector(".preloader");
+/* START GAME 2 */
 
-  // Set a timeout for the duration of the animation (e.g., 2.7s + buffer time of 0.3s)
-  setTimeout(() => {
-    // Add the 'hidden' class to trigger the fade-out effect
-    preloader.classList.add("hidden");
+.matchgame_23 h2 {
+	color: #fff;
+	font-family: 'chewy', cursive;
+	padding-left: 10px;
+}
 
-    // After the fade-out transition, hide the preloader and show the next div
-    setTimeout(() => {
-      // Hide the preloader completely by setting display to 'none'
-      preloader.style.display = "none";
+.matchgame_23 .instruction {
+	color: #fff;
+	font-family: 'chewy', cursive;
+	padding-left: 10px;
+	font-size: 22px;
+}
 
-      // Show the next div (replace '.next-div' with the actual class or id of the next content div)
-      const nextDiv = document.querySelector(".next-div");
-      if (nextDiv) {
-        nextDiv.style.display = "block";
-      }
-    }, 500); // This timeout matches the fade-out transition time (500ms)
-  }, 4000); // Timeout time should match the total animation duration (2.7s + 0.3s buffer)
-});
+#game_container_23 {
+	width: 100%;
+    /* margin: 0; */
+    /* padding: 0; */
+    margin: 0 auto;
+    /* padding-top: 40px; */
+}
 
-$(function () {
-  /*
-   **********************************************************
-   ***    First some setup:                               ***
-   ***    Create the answers that the users will drag     ***
-   ***    to the appropriate categories.                  ***
-   ***    No need to change the "order"                   ***
-   ***    element as it is just a placeholder - order     ***
-   ***    is randomized later.                            ***
-   **********************************************************
-   */
-  var answers = [
-    {
-      text: "be honest",
-      order: "1",
-    },
-    {
-      text: "makes perfect",
-      order: "2",
-    },
-    {
-      text: "we become experts",
-      order: "3",
-    },
-  ];
+#game_container_23 #draggable_container_23, #game_container_23 #droppable_container_23, #game_container_23 #score_container_23 {
+	    /* border: 1px solid #999; */
+    width: 1000px;
+    margin-bottom: 20px;
+}
 
-  //   {
-  //     "text":   "Asparagus",
-  //     "order":  "5"
-  //   }, {
-  //     "text":   "Corn",
-  //     "order":  "6"
-  //   }, {
-  //     "text":   "Windows",
-  //     "order":  "7"
-  //   }, {
-  //     "text":   "Linux",
-  //     "order":  "8"
-  //   }, {
-  //     "text":   "Android",
-  //     "order":  "9"
-  // }];
+#game_container_23 #draggable_container_23 {
+/* 	min-height: 125px; */
+    position: relative;
+}
 
-  /*
-   **********************************************************
-   ***    Now create the three categories to which the    ***
-   ***    user will drag their answers                    ***
-   **********************************************************
-   */
-  var subcontainers = [
-    {
-      text: "When the same tasks over and over again, ______",
-      id: "fruits",
-    },
-    {
-      text: "Have a positive mindset and ______",
-      id: "vegetables",
-    },
-    {
-      text: "Practice ______",
-      id: "neverpresent",
-    },
-  ];
+#game_container_23 #droppable_container_23 {
+/* 	height: 242px; */
+}
 
-  /*
-   **********************************************************
-   ***    Now define which answers belong in which        ***
-   ***    categories. The numbers here (i.e. the 3 in     ***
-   ***    answer3, etc) are derived from the 'order'      ***
-   ***    element of the answers[] array.                 ***
-   **********************************************************
-   */
-  var fruits_correct = new Array("answer3");
-  var veggies_correct = new Array("answer1");
-  var os_correct = new Array("answer2");
+#game_container_23 #score_container_23 {
+/*	height: 80px;*/
+}
 
-  /*
-   **********************************************************
-   ***    NOTE!!! The names of the *_correct arrays and   ***
-   ***    the subcontainer ids also have to be changed    ***
-   ***    down at the bottom of the score_game()          ***
-   ***    function. If anyone wants to help me            ***
-   ***    abstract that so they only need to be set       ***
-   ***    once, here at the top of the document, that     ***
-   ***    would be great.                                 ***
-   **********************************************************
-   */
+#game_container_23 .dragthis, #game_container_23 .dropped, #game_container_23 .correct, #game_container_23 .incorrect {
+	text-align: center;
+    cursor: move;
+    background: linear-gradient(90deg, rgba(195, 133, 47, 1) 0%, rgba(253, 230, 126, 1) 17%, rgba(193, 147, 60, 1) 72%, rgba(139, 76, 10, 1) 86%, rgba(170, 115, 7, 1) 100%);
+    width: 190px;
+    border: 3px solid #e8a620;
+    padding: 5px;
+    float: left;
+    margin: 5px 0 0 5px;
+    color: #000000;
+    font-size: 20px;
+    font-family: 'chewy', cursive;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
 
-  reset_game(); // this initializes the game
+#game_container_23 .dropped, #game_container_23 .correct, #game_container_23 .incorrect {
+	width: 188px;
+    margin: 5px 0 5px 0;
+    font-weight: 700;
+    text-align: center;
+    float: right;
+}
 
-  $("#game_container_23 #button_container_23 #reset_button_23").click(function () {
-    reset_game();
-  });
+#game_container_23 #draggable_container_23 div.ui-sortable-helper {
+	-webkit-box-shadow: 3px 3px 5px 0px #333; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	box-shadow: 3px 3px 5px 0px #333; /* Opera 10.5, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+	-moz-box-shadow:    3px 3px 5px 0px #333;
+}
 
-  $("#game_container_23 #button_container_23 #check_button_23").click(function () {
-    $("#game_container_23 .qanswer")
-      .promise()
-      .done(function () {
-        // promise().done() waits for any animations to complete before firing the function
-        score_game(); // this is necessary because any divs that have not yet finished the "drop" animation will not be scored
-      });
-  });
+#game_container_23 #droppable_container_23 div.subcontainer {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+	text-align: left;
+    width: 100%;
+    /* height: 220px; */
+    border: 1px solid #990;
+    font-size: 24px;
+    font-family: 'Chewy', cursive;
+    color: #333;
+    background-color: #FFC;
+    padding: 0 20px;
+    margin: 5px 0 0 5px;
+    float: left;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
 
-  $("#game_container_23 #ok_button_23").click(function () {
-    $("#game_container_23 #message_23")
-      .animate(
-        {
-          width: "0",
-          height: "0",
-          padding: "0",
-          opacity: 0,
-        },
-        1000
-      )
-      .hide(1000);
-  });
+.answer-container {
+  display: flex; /* Optional: keeps buttons aligned if there are multiple */
+  align-items: center; /* Ensures the button is vertically aligned */
+}
 
-  function reset_game() {
-    // empty the divs
-    $("#game_container_23 #draggable_container_23").html("").removeClass();
-    $("#game_container_23 #droppable_container_23").html("");
+#game_container_23 #button_container_23 {
+	display: flex;
+    width: 1000px;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
 
-    // enable the "check" button
-    $("#game_container_23 #check_button_23").removeAttr("disabled");
+#button_container_23 input {
+	margin: 0 10px;
+    padding: 0 10px;
+}
 
-    // hide the incomplete message_23 and the game score if they are showing
-    $("#game_container_23 #message_23").hide();
-    $("#game_container_23 #score_container").hide();
+#game_container_23 .correct {
+	border: 1px solid #393;
+	background: linear-gradient(90deg, #8BC34A 0%, #4CAF50 17%, #388E3C 72%, #2E7D32 86%, #7CB342 100%);
+    color: #fff;
+}
 
-    // now place the answer containers on the page and make them accept the dragged answers from above
-    for (var j = 0; j < 3; j++) {
-      $("<div><strong>" + subcontainers[j].text + "</strong></div>")
-        .attr("class", "subcontainer")
-        .attr("id", subcontainers[j].id)
-        .appendTo("#game_container_23 #droppable_container_23")
-        .sortable({
-          containment: "#game_container_23",
-          cursor: "move",
-          items: "div",
-          revert: 250,
-          connectWith: "#game_container_23 .subcontainer",
-          receive: function (event, ui) {
-            if (ui.item.parents("#game_container_23 .subcontainer")) {
-              ui.item.removeClass("dragthis").addClass("dropped");
-            } else {
-              ui.item.removeClass("dropped").addClass("dragthis");
-            }
-          },
-        })
-        .disableSelection();
-    }
+#game_container_23 .incorrect {
+	border: 1px solid #933;
+	background: linear-gradient(90deg, #F44336 0%, #D32F2F 17%, #E91E63 72%, #AD1457 86%, #F06292 100%);
+    color: #fff;
+}
 
-    // randomize the order of the answer divs
-    answers.sort(function () {
-      return Math.round(Math.random()) - 0.5;
-    });
+#game_container_23 #score_container_23, #game_container_23 #message_23 {
+	background: #ffffff;
+    text-align: center;
+    color: #e8a620;	
+	text-align: center;
+	color: #666;
+	font-size: 24px;
+	font-family: 'chewy', cursive;
+	line-height: 1em;
+}
 
-    // place them on the page and make them sortable
-    for (var i = 0; i < answers.length; i++) {
-      $("<div>" + answers[i].text + "</div>")
-        .attr("id", "answer" + answers[i].order)
-        .attr("class", "dragthis qanswer")
-        .appendTo("#game_container_23 #draggable_container_23")
-        .disableSelection();
-    }
-    $("#game_container_23 #draggable_container_23")
-      .sortable({
-        connectWith: "#game_container_23 .subcontainer",
-        containment: "#game_container_23",
-        cursor: "move",
-        items: "div",
-        revert: 250,
-      })
-      .disableSelection();
-  }
+#game_container_23 #score_container_23 #score_text {
+	padding: 20px;
+}
 
-  function score_game() {
-    // check to see if they are finished
-    // do this by making sure that #draggable_container_23 is empty
-    if (!$("#game_container_23 #draggable_container_23").is(":empty")) {
-      // it's not empty! it would be madness to try to calculate this score.
+#game_container_23 #message_23 {
+	display: flex;
+	position: absolute;
+	border: 1px solid #333;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 3px 3px 5px 0px #333; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+	box-shadow: 3px 3px 5px 0px #333; /* Opera 10.5, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+	-moz-box-shadow: 3px 3px 5px 0px #333;
+}
 
-      // fill the message_23 div with text accordingly
-      $("#game_container_23 #message_23 #text").html(
-        "The game is not complete! Please drag all the answers"
-      );
+#game_container_23 #message_23 #text {
+	padding-bottom: 10px;
+}
 
-      // now we'll animate it growing and appearing. neato
-      $("#game_container_23 #message_23")
-        .show()
-        .css({
-          top: $("#game_container_23 #droppable_container_23").position().top - 50,
-          left: $("#game_container_23 #droppable_container_23").position().left + 100,
-        })
-        .animate(
-          {
-            width: "450px",
-            height: "80px",
-            padding: "20px",
-            opacity: 1,
-          },
-          500
-        );
+#game_container_23 #score_container_23 .score {
+	font-weight: bold;
+}
 
-      // you don't get a score yet. stop here.
-      return;
-    }
+/* START GAME 4 - TRUE OR FALSE */
 
-    // if we got this far, it means each draggable has been dragged to one of the containers.
+#opening {
+/*     width: 500px; */
+    height: 300px;
+    background-color: #ed9d262e;
+    box-shadow: 0px 4px rgb(239 160 42 / 45%);
+    margin: auto;
+    /* margin-top: 100px; */
+    position: relative;
+    border-radius: 10px;
+}
 
-    // make the items no longer sortable by disabling them
-    $("#game_container_23 .subcontainer").each(function (index) {
-      $(this).sortable("option", "disabled", true);
-    });
+#startgame {
+    width: 350px;
+    height: 70px;
+    background-color: rgb(239 166 39);
+    box-shadow: 0px 4px rgb(255 206 99);
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 10px;
+    text-align: center;
+    line-height: 70px;
+    /* font-family: 'Sniglet', cursive; */
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    z-index: 1;
+}
+#inst{
+    font-family: 'Chewy', cursive; 
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    color: rgb(48, 17, 107);
+    position:relative;
+    top: 100px;
+}
+#inst2,#inst3{
+    font-family: 'Chewy', cursive; 
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    position:relative;
+    top: 200px;
+}
+.rules {
+	position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.rules h3 {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px 30px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+    color: var(--dark);
+    padding-right: 30px;
+}
+.rules h3::after {
+    background-size: cover;
+    background-position: left;
+}
+.rules h3::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: url(../img/shape/3.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+#startgame:hover {
+    background-color: rgb(252, 150, 66);
+    box-shadow: 0px 4px rgb(139, 70, 14);
+}
 
-    // also disable the "check" button
-    $("#game_container_23 #button_container_23 #check_button_23").attr(
-      "disabled",
-      "disabled"
-    );
+#startgame:active {
+/*     top: 159.5px; */
+    box-shadow: 0px 0px rgb(139, 70, 14);
+}
 
-    // go through each and see if it's in the right place
-    $correctcounter = 0; // keep track of how many are right
-    $("#game_container_23 .dropped").each(function (index) {
-      $thisid = $(this).attr("id"); // shortcuts
-      $parentid = $(this).parent().attr("id");
-      $(this).css("cursor", "default"); // UI helper to help the user know the elements are no longer draggable
-      if (
-        // big long if statement to see if the element is in the right place
-        ($.inArray($thisid, fruits_correct) > -1 && $parentid == "fruits") ||
-        ($.inArray($thisid, veggies_correct) > -1 &&
-          $parentid == "vegetables") ||
-        ($.inArray($thisid, os_correct) > -1 && $parentid == "neverpresent")
-      ) {
-        $(this).addClass("correct", 800).removeClass("dropped", 800); // it's in the right place - make it all green and happy
-        $correctcounter++; // +1 to the counter of correct answers
-      } else {
-        $(this).addClass("incorrect", 800).removeClass("dropped", 800); // it's in the wrong place - make it all red and sad
-      }
-    });
+#startquiz {
+    display: none;
+    /*     width: 500px; */
+    height: 300px;
+    background-color: #ed9d262e;
+    box-shadow: 0px 4px rgb(239 160 42 / 45%);
+    margin: auto;
+    /* margin-top: 100px; */
+    position: relative;
+    border-radius: 10px;
+}
 
-    // tell the user their score, we'll use the heretofore hidden #score_container div for that.
-    $("#game_container_23 #score_container #score_text").html(
-      'You got <span class="score">' +
-        $correctcounter +
-        "</span> out of 3 correct!"
-    );
-    $("#game_container_23 #score_container").slideDown(500);
-  }
-});
+.quiz-box {
+	position: relative;
+	top: 10%;
+    left: 5%;
+/*     bottom: 0; */
+/*     transform: translateX(0%) translateY(-50%); */
+}
+
+#score {
+/*     width: 100px; */
+    height: 30px;
+    color: #fff;
+    font-size: 30px;
+/*     background-color: #2eda76; */
+/*     box-shadow: 0px 4px rgb(25, 138, 40); */
+    position: absolute;
+/*     left: 200px; */
+    top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    font-family: 'Chewy', cursive;
+
+}
+#correct {
+    width: 150px;
+    height: 50px;
+    background-color: #2eda76;
+    color: #fff;
+    position: absolute;
+    left: 370px;
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+    line-height: 50px;
+    font-family: 'chewy', cursive;
+	display: none;
+}
+#wrong {
+	width: 150px;
+    height: 50px;
+    background-color: #e63e3e;
+    color: #fff;
+    position: absolute;
+    left: 370px;
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+    line-height: 50px;
+    font-family: 'chewy', cursive;
+    display: none;
+   
+}
+
+#questions {
+/*     width: 350px; */
+    height: 70px;
+    color: #fff;
+/*     background-color: rgb(110, 235, 197); */
+/*     box-shadow: 0px 4px rgb(15, 100, 75); */
+    position: absolute;
+/*     left: 75px; */
+    top: 70px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+    font-family: 'Chewy', cursive;
+    font-size: 30px;
+}
+
+#options {
+/*     width: 100%; */
+    height: 180px;
+/*     background-color: rgb(230, 201, 38); */
+/*     box-shadow: 0px 4px rgb(134, 119, 31); */
+    position: absolute;
+/*     left: 75px; */
+    top: 100px;
+    border-radius: 10px;
+
+}
+
+.choice {
+
+    width: 90px;
+    height: 60px;
+    font-size: 30px;
+    background-color: rgb(211, 208, 208);
+    box-shadow: 0px 4px rgb(109, 109, 109);
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-family: 'Chewy', cursive;
+    cursor: pointer;
+    transition: all cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+}
+
+#choice1 {
+/*     left: 30px; */
+    top: 55px;
+}
+
+#choice2 {
+    left: 100px;
+    top: 55px;
+}
+
+
+/* browsers don't support the hover css , turn this on if u want to try it on pc
+/*#choice1:hover {
+
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 4px rgb(158, 70, 154);
+}
+
+#choice2:hover {
+
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 4px rgb(158, 70, 154);
+}
+
+#choice3:hover {
+
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 4px rgb(158, 70, 154);
+}
+
+#choice4:hover {
+
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 4px rgb(158, 70, 154);
+}
+
+/*#choice1:active {
+    top: 14px;
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 0px rgb(158, 70, 154);
+}
+
+#choice2:active {
+    top: 14px;
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 0px rgb(158, 70, 154);
+}
+
+#choice3:active {
+    top: 114px;
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 0px rgb(158, 70, 154);
+}
+
+#choice4:active {
+    top: 114px;
+    background-color: rgb(233, 151, 229);
+    box-shadow: 0px 0px rgb(158, 70, 154);
+}*/
+
+
+
+
+#start {
+    width: 120px;
+    height: 40px;
+    background-color: rgb(231, 105, 105);
+    box-shadow: 0px 4px rgb(177, 31, 31);
+    color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    right: 80px;
+    top: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    font-family: 'Chewy', cursive;
+    cursor: pointer;
+
+}
+
+#start:hover {
+
+    background-color: rgb(223, 61, 61);
+    box-shadow: 0px 4px rgb(100, 16, 16);
+    color: white;
+}
+
+#start:active {
+/*     top: 354px; */
+    box-shadow: 0px 0px rgb(177, 31, 31);
+}
+
+#timeremaining {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(255 255 255);
+    box-shadow: 0px 2px rgb(226 152 33);
+    color: #000;
+    border-radius: 15px;
+    position: absolute;
+    right: 220px;
+    top: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    font-family: 'Chewy', cursive;
+
+}
+
+#endgame{
+    width: 350px;
+    height: 260px;
+    background-color: #32291c;
+    border: 5px solid #f1a22f;
+    position: absolute;
+    left: 250px;
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    font-family: 'Chewy', cursive;
+    font-size: 1.5em;
+    display: none;
+}
+
+#endgame p {
+	font-weight: 900;
+    font-family: 'chewy', cursive;
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+}
+
+#congratulations{
+    width: 350px;
+    height: 260px;
+    background-color: #32291c;
+    border: 5px solid #f1a22f;
+    position: absolute;
+    left: 250px;
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    font-family: 'Chewy', cursive;
+    font-size: 1.5em;
+    display: none;
+}
+
+#congratulations p {
+	font-weight: 900;
+    font-family: 'chewy', cursive;
+    font-size: 30px;
+    color: #fff;
+    margin: 0;
+}
