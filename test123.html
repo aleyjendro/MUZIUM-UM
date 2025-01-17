@@ -644,8 +644,8 @@ body {
 ];
 let correct = 0;
 let total = 0;
-const totalDraggableItems = 5;
-const totalMatchingPairs = 5; // Should be <= totalDraggableItems
+const totalDraggableItems = 3;
+const totalMatchingPairs = 3; // Should be <= totalDraggableItems
 
 const scoreSection = document.querySelector(".score");
 const correctSpan = scoreSection.querySelector(".correct");
@@ -667,7 +667,7 @@ function initiateGame() {
   // Create "draggable-items" and append to DOM
   for(let i=0; i<randomDraggableBrands.length; i++) {
     draggableItems.insertAdjacentHTML("beforeend", `
-      <i class="fab fa-${randomDraggableBrands[i].iconName} draggable" draggable="true" style="color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"></i>
+      <i class="draggable" draggable="true" style="color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"> ${randomDraggableBrands[i].iconName}</i>
     `);
   }
   
@@ -738,8 +738,10 @@ function drop(event) {
     event.target.classList.add("dropped");
     draggableElement.classList.add("dragged");
     draggableElement.setAttribute("draggable", "false");
-    event.target.innerHTML = `<i class="fab fa-${draggableElementBrand}" style="color: ${draggableElement.style.color};"></i>`;
+    event.target.innerHTML = `<i style="color: ${draggableElement.style.color};">${draggableElementBrand}</i>`;
     correct++;  
+  }else{
+    alert('wrong answer please try again');
   }
   scoreSection.style.opacity = 0;
   setTimeout(() => {
