@@ -4775,7 +4775,7 @@ ul.biography-table p {
 .about-style-one-thumb .curve-text {
 	position: absolute;
 	right: -70px;
-	top: 15%;
+	bottom: 15%;
 }
 
 ul.skill-items li {
