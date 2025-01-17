@@ -123,7 +123,7 @@ body {
   #play-again-btn.play-again-btn-entrance { transform: translateX(7rem); }
 }
 </style>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 <section class="score">
     <span class="correct">0</span>/<span class="total">0</span>
     <button id="play-again-btn">Play Again</button>
@@ -667,7 +667,7 @@ function initiateGame() {
   // Create "draggable-items" and append to DOM
   for(let i=0; i<randomDraggableBrands.length; i++) {
     draggableItems.insertAdjacentHTML("beforeend", `
-      <i class="fab fa-${randomDraggableBrands[i].iconName} draggable" draggable="true" style="background-color: ${randomDraggableBrands[i].color}; ;color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"></i>
+      <i class="fab fa-${randomDraggableBrands[i].iconName} draggable" draggable="true" style="color: ${randomDraggableBrands[i].color};" id="${randomDraggableBrands[i].iconName}"></i>
     `);
   }
   
