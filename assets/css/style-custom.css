@@ -953,9 +953,19 @@ a:hover {
     color: #ebaf0a;
 }
 
+.about-item {
+  box-shadow: none;
+  padding: 0;
+  margin-top: 40px;
+  border-radius: 0;
+  background-size: unset;
+  background-position: unset;
+}
+
 .about-item h3 {
-    font-size: 24px;
-    font-weight: 700;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0;
 }
 
 .about-item h3::after {
@@ -1708,8 +1718,12 @@ img.quote-inside {
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 1; /* Initially visible */
+  opacity: 0; /* Initially visible */
   transition: opacity 0.5s ease-out; /* Add smooth fade-out transition */
+}
+.preloader.visible {
+  opacity: 1; /* Make it visible */
+  pointer-events: auto; /* Enable interaction */
 }
 .preloader-content {
   display: flex;
@@ -2278,7 +2292,7 @@ button.btn {
     content: "";
     height: 100%;
     width: 100%;
-    background: url(https://hdayat665.github.io/MUZIUM-UM/shape/3.png);
+    background: url('https://hdayat665.github.io/MUZIUM-UM/shape/3.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
