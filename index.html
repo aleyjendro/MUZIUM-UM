@@ -4110,16 +4110,6 @@
                 }, 50);
             }, 500); // Adjust time to match the CSS transition duration
 
-            function showPopup() {
-                document.getElementById("popup").style.display = "block";
-                document.getElementById("overlay").style.display = "block";
-            }
-
-            function closePopup() {
-                document.getElementById("popup").style.display = "none";
-                document.getElementById("overlay").style.display = "none";
-            }
-
             // Add click event listeners to images inside the first modal
             document.querySelectorAll('.clickable').forEach(image => {
                 image.addEventListener('click', function () {
@@ -5324,7 +5314,19 @@
             $('body').css("background-image",
                 "url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-home-game.jpg')");
         }
+
+        function showPopup() {
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
+            }
+
+            function closePopup() {
+                document.getElementById("popup").style.display = "none";
+                document.getElementById("overlay").style.display = "none";
+            }
     </script>
+
+    
 
     <!-- games22 js -->
     <!-- <script>
