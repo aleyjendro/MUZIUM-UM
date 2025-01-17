@@ -36,6 +36,11 @@
     color: #000000;
 }
 
+.sub-title {
+    color: #000000;
+    -webkit-text-fill-color: unset;
+}
+
 ul.biography-table h5 {
 	font-size: 22px;
 	font-weight: 800;
@@ -153,7 +158,7 @@ ul.biography-table h5 {
 }
 
 .shining-text-two:after {
-  content: "Science Behind 5 Wells";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -570,6 +575,10 @@ p {
   	background-position: center;
 }
 
+.modal-dialog-scrollable .modal-body {
+    padding: 10px;
+}
+
 /* Button back */
 
 .scroll-info {
@@ -944,6 +953,11 @@ a:hover {
     color: #ebaf0a;
 }
 
+.about-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
 .about-item h3::after {
     background-size: cover;
     background-position: left;
@@ -967,10 +981,16 @@ a:hover {
     top: 120px;
     border-radius: 270px;
     box-shadow: 0px 10px 51px rgba(0, 0, 0, 0.07);
-
     /* Gradient border setup */
     background: linear-gradient(45deg, #FFD700, #FFA500); /* Gold gradient */
     padding: 5px; /* Space for the border */
+}
+
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video scales to cover the container */
+    border-radius: 270px; /* Matches the border-radius of the container */
 }
 
 .about-style-one-thumb img {
@@ -997,6 +1017,10 @@ a:hover {
   align-items: center; /* Centers cards vertically */
   gap: 20px; /* Optional: Adds spacing between cards */
   height: 100vh; /* Optional: Adjust the height of the row (full viewport height for demo) */
+}
+
+.service-single-thumb img {
+    margin-bottom: 10px;
 }
 
 .home-blog .blog-style-one .item .thumb .inner-date {
@@ -1094,121 +1118,143 @@ a:hover {
 
 /* Venn */
 
-#Infographic {
-  width: 40em;
-  margin: .5em auto;
-  padding: 1em;
-  position: relative;
-  font-weight: bold;
-  background-color: #fff;
-  height: 40em;
-}
+.venn-container {
+      position: relative;
+      width: 100%; /* Makes the container scale with screen size */
+      max-width: 550px;
+      aspect-ratio: 1 / 1; /* Ensures the container is a square */
+    }
 
-#Infographic span {
-  display: none;
-}
+    .circle {
+      position: absolute;
+      width: 50%; /* Width relative to the container */
+      height: 50%; /* Height relative to the container */
+      border-radius: 50%;
+      opacity: 0.7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      font-size: 1.2vw; /* Scales with the viewport */
+    }
 
-.circle {
-  border-radius: 50%;
-  width: 25em;
-  height: 25em;
-  text-align: center;
-  vertical-align: center;
-  position: absolute;
-}
+    .circle1 {
+      background-color: #ff9999;
+      top: 0;
+      left: 35%; /* Centered horizontally */
+    }
 
-.circle p {
-  height: 20em;
-  width: 20em;
-  display: table-cell;
-  vertical-align: middle;
-  color: #000000;
-  font-weight: 600;
-  line-height: 22px;
-}
+    .circle2 {
+      background-color: #99ccff;
+      top: 25%;
+      left: 15%; /* Positioned to overlap */
+    }
 
-#c1 {
-  top: 0;
-  left: 0;
-/*   background-color: rgb(253 221 165); */
-  background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Initial gradient color */
-  animation: fadeColor1 3s infinite alternate, fadeOpacity 3s infinite alternate;
-}
+    .circle3 {
+      background-color: #99ff99;
+      top: 25%;
+      left: 55%; /* Positioned to overlap */
+    }
 
-#c2 {
-  top: 0;
-  left: 15em;
-/*   background-color: rgb(164 107 30 / 64%); */
-  background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Initial gradient color */
-  animation: fadeColor2 3s infinite alternate, fadeOpacity 3s infinite alternate;
-}
+    .middle {
+      position: absolute;
+      width: 20%; /* Scales with the container */
+      height: 20%; /* Scales with the container */
+      top: 40%; /* Adjust position for the overlapping center */
+      left: 50%; /* Centered within the container */
+      background-color: rgba(255, 255, 0, 0.8);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.2vw; /* Scales with the viewport */
+      text-align: center;
+    }
 
-#c2 p {
-  padding-left: 5em;
-}
+    .middle:hover {
+      background-color: rgba(255, 255, 0, 1);
+    }
 
-#c3 {
-  top: 14em;
-  left: 7.5em;
-/*   background-color: rgb(255 193 7 / 68%); */
-  background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Initial gradient color */
-  animation: fadeColor3 3s infinite alternate, fadeOpacity 3s infinite alternate;
-}
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      z-index: 1000;
+    }
 
-#c3 p {
-  width: 25em;
-  height: 15em;
-  padding-top: 10em;
-}
+    #popup img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-/* Color change animation */
-@keyframes fadeColor1 {
-  0% {
-    background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Color 1 */
-  }
-  50% {
-    background: linear-gradient(45deg, #6a85b6, #bac8e0); /* Color 2 */
-  }
-  100% {
-    background: linear-gradient(45deg, #ffd700, #ff9a00); /* Color 3 */
-  }
-}
+    #popup .close-btn {
+      display: block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #d6a916;
+      color: white;
+      text-align: center;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-@keyframes fadeColor2 {
-  0% {
-    background: linear-gradient(45deg, #6a85b6, #bac8e0); /* Color 1 */
-  }
-  50% {
-    background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Color 2 */
-  }
-  100% {
-    background: linear-gradient(45deg, #ffd700, #ff9a00); /* Color 3 */
-  }
-}
+    #popup .close-btn:hover {
+      background-color: #d32f2f;
+    }
 
-@keyframes fadeColor3 {
-  0% {
-    background: linear-gradient(45deg, #ff7eb3, #ff758c); /* Color 1 */
-  }
-  50% {
-    background: linear-gradient(45deg, #ffd700, #ff9a00); /* Color 2 */
-  }
-  100% {
-    background: linear-gradient(45deg, #6a85b6, #bac8e0); /* Color 3 */
-  }
-}
+    /* Overlay */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
 
-/* Fade in and fade out animation */
-@keyframes fadeOpacity {
-  0% {
-    opacity: 0.2; /* Fully transparent */
-  }
-  50% {
-    opacity: 1; /* Fully visible */
-  }
-  100% {
-    opacity: 0.2; /* Fully transparent again */
-  }
+    .image-row {
+	    display: flex; /* Use flexbox for layout */
+	    gap: 15px; /* Space between images */
+	    justify-content: center; /* Center images horizontally */
+	    flex-wrap: nowrap; /* Allow wrapping on smaller screens */
+	    padding: 10px; /* Add padding around the row */
+	}
+
+	.venn-img-container {
+/* 	    flex: 1 1 calc(33.333% - 30px); /* Each image takes 1/3 of the row, minus gap */
+/* 	    max-width: calc(33.333% - 30px); Ensure max width is 1/3 of the row, minus gap */
+	    box-sizing: border-box; /* Include padding and border in width */
+	}
+
+	.venn-img-container img {
+	    width: 100%; /* Make the image fill its container */
+	    height: auto; /* Maintain aspect ratio */
+	    border-radius: 10px; /* Optional: Add rounded corners */
+	}
+
+/* PHILO QUOTE GALLERY */
+
+img.quote-inside {
+    max-width: 120vh;
+    /* max-height: 60vh; */
+    transition: .5s;
+    vertical-align: text-top;
+    filter: none;
 }
 
 /* Quote */
@@ -1216,7 +1262,8 @@ a:hover {
 .blog-area blockquote {
     background: #e7ac0b;
     border-radius: 15px;
-    padding: 40px 50px;
+    padding: 30px 50px;
+    margin-top: 0;
 }
 
 /* Table */
@@ -1553,6 +1600,8 @@ a:hover {
   background: linear-gradient(45deg, #996912, #bf9756, #996912);
   border-radius: 15px;
   padding: 1vh;
+  min-width: 382px;
+  height: 300px;
 }
 
 .card-game img {
@@ -1602,6 +1651,44 @@ a:hover {
   .card-container {
     grid-template-columns: 1fr; /* 1 column on mobile devices */
   }
+}
+
+/* HOME PAGE NEW FOR 2 CARD GAME */
+
+.card-game-container {
+  position: absolute;
+  bottom: 30px; /* Distance from bottom of the viewport */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-game-for-2 {
+  background-color: #4b3305;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-game-for-2 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-game-for-2:hover {
+  transform: translateY(-5px);
+}
+
+.card-game-for-2-title {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 /* GAME 1 */
@@ -2191,7 +2278,7 @@ button.btn {
     content: "";
     height: 100%;
     width: 100%;
-    background: url(../img/shape/3.png);
+    background: url(https://hdayat665.github.io/MUZIUM-UM/shape/3.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
