@@ -3,6 +3,11 @@
 =================================================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Chewy&display=swap');
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
 .banner-style-two-area h2 {
     font-size: 50px;
