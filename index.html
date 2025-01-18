@@ -29,12 +29,14 @@
     <link href="https://hdayat665.github.io/MUZIUM-UM/assets/css/style-custom.css" rel="stylesheet">
     <link href="https://hdayat665.github.io/MUZIUM-UM/assets/css/games22.css" rel="stylesheet">
     <link href="https://hdayat665.github.io/MUZIUM-UM/assets/css/games23.css" rel="stylesheet">
+    <link href="https://hdayat665.github.io/MUZIUM-UM/assets/css/games2.css" rel="stylesheet">
     <!-- ========== End Stylesheet ========== -->
 
     <style>
         img {
             pointer-events: none !important;
         }
+
         #homepage,
         #fourpanels,
         #gallery,
@@ -100,8 +102,8 @@
                                             <div class="content">
                                                 <span onclick="openFullScreen()">
                                                     <img class="mb-3"
-                                                    src="https://hdayat665.github.io/MUZIUM-UM/interactive/logo-topglove.png"
-                                                    alt="logo" style="width: 150px;">
+                                                        src="https://hdayat665.github.io/MUZIUM-UM/interactive/logo-topglove.png"
+                                                        alt="logo" style="width: 150px;">
                                                 </span>
                                                 <h2>Welcome to<br><span class="shining-text">Tan Sri Dr Lim Wee
                                                         Chai’s</span><br>Interactive Wall</h2>
@@ -148,14 +150,13 @@
     </section>
 
     <section style="display: none;" id="fourpanels">
-
         <div class="main-wrapper" data-enter="fadeInLeft" data-exit style="margin-left: 0;">
 
             <!-- Start Main Area
           ============================================= -->
             <div class="main-content-area">
 
-                <div class="glitter-bg">
+                <div class="glitter-bg-1">
 
                     <section id="timeline">
 
@@ -3431,6 +3432,7 @@
                     <div class="intro-text-game">
                         <p class="hide-game">
                             <span class="text-game">Interactive Q&A</span>
+                            <span class="text-game"> </span>
                             <span class="text-game">and</span>
                             <span class="text-game">Games</span>
                         </p>
@@ -3557,6 +3559,68 @@
                 <div class="game-start">
                     <div class="section-item animated" id="home">
                         <div class="banner-style-quiz">
+                            <div id="quiz_2">
+                                <div class="banner-top-quiz">
+                                    <div class="row-quiz">
+                                        <div class="col-lg-12 pr-50">
+                                            <div id="quiz-stats_2" class="row text-center">
+                                                <div class="col-xs-3">
+                                                    <i class="fa fa-bar-chart"></i>
+                                                </div>
+                                                <div class="col-xs-3 col-lg-4">
+                                                    <p>Correct Rate</p>
+                                                    <span id="rate-span_2" class="animated">0/0</span>
+                                                </div>
+                                                <div class="col-xs-3 col-lg-4">
+                                                    <p>Correct Streak</p>
+                                                    <span id="streak-span_2" class="animated">0</span>
+                                                </div>
+                                                <div class="col-xs-3 col-lg-4">
+                                                    <p><span>Avg. </span>Response Time (s)</p>
+                                                    <span id="response-time-span_2" class="animated">0</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-10 col-md-offset-1 text-center"
+                                            style="margin: 0 auto;">
+                                            <div id="quiz-question_2"></div>
+                                            <div id="quiz-options_2"></div>
+                                        </div>
+                                        <div id="quiz-play-again_2">
+                                            <button id="quiz-play-again-btn_2">Play Again</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="scroll-info">
+                    <a href="#" onclick="showGamesPage()">
+                        <span class="icon" style="display: flex; align-item fadeins: center;">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/logo/back-arrow.svg"
+                                style="width: 40px; margin-right: 5px;">
+                        </span>
+                    </a>
+                    <a href="#" onclick="showHomepage()">
+                        <span class="icon" style="display: flex; align-item fadeins: center;">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/logo/home.svg"
+                                style="width: 40px; margin-right: 5px;">
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section style="display: none;" id="games2">
+        <div class="main-wrapper" data-enter="fadeInLeft" data-exit style="margin-left: 0;">
+            <div class="main-content-area">
+                <div class="game-start">
+                    <div class="section-item animated" id="home">
+                        <div class="banner-style-quiz">
                             <div id="quiz2">
                                 <div class="banner-top-quiz">
                                     <div class="matchgame" style="padding: 40px 20px;">
@@ -3611,7 +3675,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section style="display: none;" id="games22">
         <div class="main-wrapper" data-enter="fadeInLeft" data-exit style="margin-left: 0;">
@@ -3917,6 +3981,20 @@
                 }, 100);
             }
             turnOff();
+
+            const glitterBg = document.querySelector('.glitter-bg-1');
+            const sparkleCount = 50; // Adjust this to add more or fewer sparkles
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.top = Math.random() * 100 + 'vh'; // Random vertical position
+                sparkle.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+                sparkle.style.animationDelay = Math.random() * 10 + 's'; // Random animation delay
+                sparkle.style.width = Math.random() * 5 + 3 + 'px'; // Random sparkle size
+                sparkle.style.height = sparkle.style.width; // Keep it circular
+                glitterBg.appendChild(sparkle);
+            }
         }
 
         function showHomepage() {
@@ -4461,7 +4539,7 @@
                     {
                         question: "4. Top Glove listed on Bursa Malaysia in...",
                         answers: [{
-                                answer: "2011",
+                                answer: "2001",
                                 isCorrect: true
                             },
                             {
@@ -4876,282 +4954,790 @@
         function showGames2Page() {
             $('body').css("background-image",
                 "url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-home-game.jpg')");
-            const fourpanelPage = document.getElementById("games");
-            const games2 = document.getElementById("games2");
 
+            const fourpanelPage = document.getElementById("games");
+            const games1 = document.getElementById("games2");
             // Start by fading out the homepage
-            games2.style.opacity = "0";
+            games1.style.opacity = "0";
 
             setTimeout(() => {
                 fourpanelPage.style.display = "none"; // Hide the homepage
-                games2.style.display = "block"; // Show the fourpanel
-                games2.style.opacity = "0"; // Start with hidden state
+                games1.style.display = "block"; // Show the fourpanel
+                games1.style.opacity = "0"; // Start with hidden state
 
                 // Ensure a slight delay before fading in
                 setTimeout(() => {
-                    games2.style.opacity = "1";
+                    games1.style.opacity = "1";
                 }, 50);
             }, 500); // Adjust time to match the CSS transition duration
 
+
             function games2Js() {
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    // Get the preloader element
-                    const preloader = document.querySelector('.preloader1');
-
-                    // Set a timeout for the duration of the animation (e.g., 2.7s + buffer time of 0.3s)
-                    setTimeout(() => {
-                        // Add the 'hidden' class to trigger the fade-out effect
-                        preloader.classList.add('hidden');
-
-                        // After the fade-out transition, hide the preloader and show the next div
-                        setTimeout(() => {
-                            // Hide the preloader completely by setting display to 'none'
-                            preloader.style.display = 'none';
-
-                            // Show the next div (replace '.next-div' with the actual class or id of the next content div)
-                            const nextDiv = document.querySelector('.next-div');
-                            if (nextDiv) {
-                                nextDiv.style.display = 'block';
+                questions2 = [{
+                        question: "1. How many times a day do you brush your teeth?",
+                        answers: [{
+                                answer: "Once",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Three times",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "More than three times",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Twice",
+                                isCorrect: false
+                            },
+                        ]
+                    },
+                    {
+                        question: "2. How often do you clean your tongue each day?",
+                        answers: [{
+                                answer: "Once",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Three times",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "Twice",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "More than three times",
+                                isCorrect: false
                             }
-                        }, 500); // This timeout matches the fade-out transition time (500ms)
-                    }, 4000); // Timeout time should match the total animation duration (2.7s + 0.3s buffer)
+                        ]
+                    },
+                    {
+                        question: "3. How many times do you take a shower in a day?",
+                        answers: [{
+                                answer: "Once",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Twice",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "Three times",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "More than three times",
+                                isCorrect: false
+                            }
+                        ]
+                    },
+                    {
+                        question: "4. How many glasses of water should we drink each day?",
+                        answers: [{
+                                answer: "8 Glasses",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "6 Glasses",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "2 Glasses",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "7 Glasses",
+                                isCorrect: false
+                            }
+                        ]
+                    },
+                    {
+                        question: "5. By being disciplined and having the knowledge to eat properly every day, we improve our body’s healthy, especially our brain and _____",
+                        answers: [{
+                                answer: "Body",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Leg",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "Heart",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "Hand",
+                                isCorrect: false
+                            }
+                        ]
+                    },
+                    {
+                        question: "6. When the same tasks over and over again, ______",
+                        answers: [{
+                                answer: "be honest",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "makes perfect",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "we become experts",
+                                isCorrect: true
+                            },
+                            // {
+                            //     answer: "Cousin",
+                            //     isCorrect: false
+                            // }
+                        ]
+                    },
+                    {
+                        question: "7. Have a positive mindset and ______",
+                        answers: [{
+                                answer: "be honest",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "makes perfect",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "we become experts",
+                                isCorrect: false
+                            },
+                            // {
+                            //     answer: "Cousin",
+                            //     isCorrect: false
+                            // }
+                        ]
+                    },
+                    {
+                        question: "8. Practice ______",
+                        answers: [{
+                                answer: "be honest",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "makes perfect",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "we become experts",
+                                isCorrect: false
+                            },
+                            // {
+                            //     answer: "Cousin",
+                            //     isCorrect: false
+                            // }
+                        ]
+                    },
+                    {
+                        question: "9. Exercise for at least 30 mins, 4/5 days a week for a healthy body.",
+                        answers: [{
+                                answer: "True",
+                                isCorrect: true
+                            },
+                            {
+                                answer: "False",
+                                isCorrect: false
+                            },
+                        ]
+                    },
+                    {
+                        question: "10. Stress is healthy for the body.",
+                        answers: [{
+                                answer: "True",
+                                isCorrect: false
+                            },
+                            {
+                                answer: "False",
+                                isCorrect: true
+                            },
+                        ]
+                    }
+                ];
+
+                let stats2 = {
+                    questions2Asked: 0,
+                    correct2: 0,
+                    correct2Streak: 0,
+                    currentTime2: null,
+                    averageResponseTime2: 0
+                };
+
+                initiateGame();
+
+                // Handle click events
+                document.addEventListener("click", function (event) {
+                    if (event.target.classList.contains("quiz-ans-btn2")) {
+                        Array.from(document.querySelectorAll(".quiz-ans-btn2")).forEach(btn => btn.disabled =
+                            true); // Disable buttons
+                        event.target.blur();
+                        const choice = Number(event.target.id.split("-")[2]);
+
+                        const responseTime = round((new Date() - stats2.currentTime2) / 1000, 2);
+                        stats2.averageResponseTime2 = round((stats2.averageResponseTime2 * (stats2
+                            .questions2Asked -
+                            1) + responseTime) / stats2.questions2Asked, 2);
+                        if (questions2[0].answers[choice].isCorrect) {
+                            event.target.classList.add("pulse", "correct2");
+                            stats2.correct2++;
+                            stats2.correct2Streak++;
+                            setTimeout(() => {
+                                nextQuestion();
+                            }, 1250);
+                        } else {
+                            event.target.classList.add("shake", "incorrect2");
+                            stats2.correct2Streak = 0;
+                            setTimeout(() => {
+                                const correct2AnswerId = "quiz-ans-" + questions2[0].answers.findIndex(
+                                    elem => elem.isCorrect);
+                                document.querySelector("#" + correct2AnswerId).classList.add(
+                                    "correct2");
+                                setTimeout(() => {
+                                    nextQuestion();
+                                }, 1500);
+                            }, 750);
+                        }
+                        displayStats2();
+                    }
                 });
 
-
-                $(function () {
-
-                    /*
-                     **********************************************************
-                     ***    First some setup:                               ***
-                     ***    Create the answers that the users will drag     ***
-                     ***    to the appropriate categories.                  ***
-                     ***    No need to change the "order"                   ***
-                     ***    element as it is just a placeholder - order     ***
-                     ***    is randomized later.                            ***
-                     **********************************************************
-                     */
-                    var answers = [{
-                        "text": "3 times a day",
-                        "order": "1"
-                    }, {
-                        "text": "3 times a day",
-                        "order": "2"
-                    }, {
-                        "text": "2 times a day",
-                        "order": "3"
-                    }];
-
-                    //   {
-                    //     "text":   "Asparagus",
-                    //     "order":  "5"
-                    //   }, {
-                    //     "text":   "Corn",
-                    //     "order":  "6"
-                    //   }, {
-                    //     "text":   "Windows",
-                    //     "order":  "7"
-                    //   }, {
-                    //     "text":   "Linux",
-                    //     "order":  "8"
-                    //   }, {
-                    //     "text":   "Android",
-                    //     "order":  "9"
-                    // }];
-
-
-                    /*
-                     **********************************************************
-                     ***    Now create the three categories to which the    ***
-                     ***    user will drag their answers                    ***
-                     **********************************************************
-                     */
-                    var subcontainers = [{
-                        "text": "Brush your teeth",
-                        "id": "fruits"
-                    }, {
-                        "text": "Clean your tongue",
-                        "id": "vegetables"
-                    }, {
-                        "text": "Shower",
-                        "id": "neverpresent"
-                    }];
-                    console.log(subcontainers);
-
-
-
-                    /*
-                     **********************************************************
-                     ***    Now define which answers belong in which        ***
-                     ***    categories. The numbers here (i.e. the 3 in     ***
-                     ***    answer3, etc) are derived from the 'order'      ***
-                     ***    element of the answers[] array.                 ***
-                     **********************************************************
-                     */
-                    var fruits_correct = new Array('answer1', 'answer2');
-                    var veggies_correct = new Array('answer1', 'answer2');
-                    var os_correct = new Array('answer3');
-
-                    /*
-                     **********************************************************
-                     ***    NOTE!!! The names of the *_correct arrays and   ***
-                     ***    the subcontainer ids also have to be changed    ***
-                     ***    down at the bottom of the score_game()          ***
-                     ***    function. If anyone wants to help me            ***
-                     ***    abstract that so they only need to be set       ***
-                     ***    once, here at the top of the document, that     ***
-                     ***    would be great.                                 ***
-                     **********************************************************
-                     */
-                    reset_game(); // this initializes the game
-
-                    $('#game_container #button_container #reset_button').click(function () {
-                        reset_game();
-                    });
-
-                    $('#game_container #button_container #check_button').click(function () {
-                        $("#game_container .qanswer").promise().done(
-                            function () { // promise().done() waits for any animations to complete before firing the function
-                                score_game
-                                    (); // this is necessary because any divs that have not yet finished the "drop" animation will not be scored
-                            });
-                    });
-
-                    $('#game_container #ok_button').click(function () {
-                        $('#game_container #message').animate({
-                            width: '0',
-                            height: '0',
-                            padding: '0',
-                            opacity: 0
-                        }, 1000).hide(1000);
-                    });
-
-                    function reset_game() {
-                        // empty the divs
-                        $('#game_container #draggable_container').html('').removeClass();
-                        $('#game_container #droppable_container').html('');
-
-                        // enable the "check" button
-                        $('#game_container #check_button').removeAttr('disabled');
-
-                        // hide the incomplete message and the game score if they are showing
-                        $('#game_container #message').hide();
-                        $('#game_container #score_container').hide();
-
-                        // now place the answer containers on the page and make them accept the dragged answers from above
-                        for (var j = 0; j < 3; j++) {
-                            $('<div><strong>' + subcontainers[j].text + '</strong></div>').attr('class',
-                                    'subcontainer')
-                                .attr('id', subcontainers[j].id).appendTo(
-                                    '#game_container #droppable_container')
-                                .sortable({
-                                    containment: "#game_container",
-                                    cursor: "move",
-                                    items: "div",
-                                    revert: 250,
-                                    connectWith: "#game_container .subcontainer",
-                                    receive: function (event, ui) {
-                                        if (ui.item.parents('#game_container .subcontainer')) {
-                                            ui.item.removeClass('dragthis').addClass('dropped');
-                                        } else {
-                                            ui.item.removeClass('dropped').addClass('dragthis');
-                                        }
+                // Handle "quiz-play-again-btn_2" Click
+                document.querySelector("#quiz-play-again-btn_2").addEventListener("click", function () {
+                    document.querySelector("#quiz-play-again-btn_2").classList.remove("infinite", "pulse");
+                    document.querySelector("#quiz-play-again-btn_2").classList.add("flipOutX");
+                    setTimeout(() => {
+                        document.querySelector("#quiz-play-again-btn_2").classList.remove("flipOutX");
+                        document.querySelector("#quiz-play-again_2").style.display = "none";
+                        questions2 = [{
+                                question: "1. How many times a day do you brush your teeth?",
+                                answers: [{
+                                        answer: "Once",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Twice",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Three times",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "More than three times",
+                                        isCorrect: false
                                     }
-                                }).disableSelection();
-                        }
-
-                        // randomize the order of the answer divs
-                        answers.sort(function () {
-                            return (Math.round(Math.random()) - 0.5);
-                        });
-
-                        // place them on the page and make them sortable
-                        for (var i = 0; i < answers.length; i++) {
-                            $('<div>' + answers[i].text + '</div>').attr('id', 'answer' + answers[i].order)
-                                .attr(
-                                    'class', 'dragthis qanswer').appendTo(
-                                    '#game_container #draggable_container')
-                                .disableSelection();
-                        }
-                        $("#game_container #draggable_container").sortable({
-                            connectWith: '#game_container .subcontainer',
-                            containment: '#game_container',
-                            cursor: 'move',
-                            items: 'div',
-                            revert: 250
-                        }).disableSelection();
-                    }
-
-                    function score_game() {
-                        // check to see if they are finished
-                        // do this by making sure that #draggable_container is empty
-                        if (!$("#game_container #draggable_container").is(":empty")) {
-                            // it's not empty! it would be madness to try to calculate this score.
-
-                            // fill the message div with text accordingly
-                            $('#game_container #message #text').html(
-                                'The game is not complete! Please drag all the answers');
-
-                            // now we'll animate it growing and appearing. neato
-                            $('#game_container #message').show().css({
-                                top: $("#game_container #droppable_container").position().top - 50,
-                                left: $("#game_container #droppable_container").position().left + 100
-                            }).animate({
-                                width: '450px',
-                                height: '80px',
-                                padding: '20px',
-                                opacity: 1
-                            }, 500);
-
-                            // you don't get a score yet. stop here.
-                            return;
-                        }
-
-                        // if we got this far, it means each draggable has been dragged to one of the containers.
-
-                        // make the items no longer sortable by disabling them
-                        $("#game_container .subcontainer").each(function (index) {
-                            $(this).sortable("option", "disabled", true);
-                        });
-
-                        // also disable the "check" button
-                        $('#game_container #button_container #check_button').attr("disabled", "disabled");
-
-
-
-                        // go through each and see if it's in the right place
-                        $correctcounter = 0; // keep track of how many are right
-                        $("#game_container .dropped").each(function (index) {
-                            $thisid = $(this).attr('id'); // shortcuts
-                            $parentid = $(this).parent().attr('id');
-                            $(this).css('cursor',
-                                'default'
-                            ); // UI helper to help the user know the elements are no longer draggable
-                            if ( // big long if statement to see if the element is in the right place
-                                ($.inArray($thisid, fruits_correct) > -1 && $parentid == 'fruits') ||
-                                ($.inArray($thisid, veggies_correct) > -1 && $parentid ==
-                                    'vegetables') ||
-                                ($.inArray($thisid, os_correct) > -1 && $parentid == 'neverpresent')
-                            ) {
-                                $(this).addClass('correct', 800).removeClass('dropped',
-                                    800); // it's in the right place - make it all green and happy
-                                $correctcounter++; // +1 to the counter of correct answers
-                            } else {
-                                $(this).addClass('incorrect', 800).removeClass('dropped',
-                                    800); // it's in the wrong place - make it all red and sad
+                                ]
+                            },
+                            {
+                                question: "2. How often do you clean your tongue each day?",
+                                answers: [{
+                                        answer: "Once",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Twice",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "More than three times",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Three times",
+                                        isCorrect: true
+                                    },
+                                ]
+                            },
+                            {
+                                question: "3. How many times do you take a shower in a day?",
+                                answers: [{
+                                        answer: "Once",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Three times",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Twice",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "More than three times",
+                                        isCorrect: false
+                                    }
+                                ]
+                            },
+                            {
+                                question: "4. How many glasses of water should we drink each day?",
+                                answers: [{
+                                        answer: "8 Glasses",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "6 Glasses",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "2 Glasses",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "7 Glasses",
+                                        isCorrect: false
+                                    }
+                                ]
+                            },
+                            {
+                                question: "5. By being disciplined and having the knowledge to eat properly every day, we improve our body’s healthy, especially our brain and _____",
+                                answers: [{
+                                        answer: "Body",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Leg",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "Heart",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "Hand",
+                                        isCorrect: false
+                                    }
+                                ]
+                            },
+                            {
+                                question: "6. When the same tasks over and over again, ______",
+                                answers: [{
+                                        answer: "be honest",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "makes perfect",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "we become experts",
+                                        isCorrect: true
+                                    },
+                                    // {
+                                    //     answer: "Cousin",
+                                    //     isCorrect: false
+                                    // }
+                                ]
+                            },
+                            {
+                                question: "7. Have a positive mindset and ______",
+                                answers: [{
+                                        answer: "be honest",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "makes perfect",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "we become experts",
+                                        isCorrect: false
+                                    },
+                                    // {
+                                    //     answer: "Cousin",
+                                    //     isCorrect: false
+                                    // }
+                                ]
+                            },
+                            {
+                                question: "8. Practice ______",
+                                answers: [{
+                                        answer: "be honest",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "makes perfect",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "we become experts",
+                                        isCorrect: false
+                                    },
+                                    // {
+                                    //     answer: "Cousin",
+                                    //     isCorrect: false
+                                    // }
+                                ]
+                            },
+                            {
+                                question: "9. Exercise for at least 30 mins, 4/5 days a week for a healthy body.",
+                                answers: [{
+                                        answer: "True",
+                                        isCorrect: true
+                                    },
+                                    {
+                                        answer: "False",
+                                        isCorrect: false
+                                    },
+                                ]
+                            },
+                            {
+                                question: "10. Stress is healthy for the body.",
+                                answers: [{
+                                        answer: "True",
+                                        isCorrect: false
+                                    },
+                                    {
+                                        answer: "False",
+                                        isCorrect: true
+                                    },
+                                ]
                             }
-                        });
+                        ];
+                        stats2 = {
+                            questions2Asked: 0,
+                            correct2: 0,
+                            correct2Streak: 0,
+                            currentTime2: null,
+                            averageResponseTime2: 0
+                        };
+                        displayStats2();
+                        initiateGame();
+                    }, 750);
+                });
 
-                        // tell the user their score, we'll use the heretofore hidden #score_container div for that.
-                        $('#game_container #score_container #score_text').html('You got <span class="score">' +
-                            $correctcounter + '</span> out of 3 correct!');
-                        $('#game_container #score_container').slideDown(500);
+                // Initiate New Game
+                function initiateGame() {
+                    displayQuestion(questions2[0]);
+                }
+
+                // Display Question
+                function displayQuestion(questionObject) {
+                    document.querySelector("#quiz-options_2").innerHTML = '';
+                    document.querySelector("#quiz-question_2").innerHTML = '';
+                    document.querySelector("#quiz-question_2").innerHTML = questionObject.question;
+                    stats2.questions2Asked++;
+                    stats2.currentTime2 = new Date();
+                    for (let i = 0; i < questionObject.answers.length; i++) {
+                        let button = document.createElement("button");
+                        button.id = "quiz-ans-" + i;
+                        button.classList.add("btn", "quiz-ans-btn2");
+                        button.innerHTML = questionObject.answers[i].answer;
+                        button.disabled = false;
+                        document.querySelector("#quiz-options_2").appendChild(button);
                     }
-                })
-            }
-            games2Js();
+                }
 
+                // Remove current question and display next one
+                function nextQuestion() {
+                    document.querySelector("#quiz-question_2").innerHTML = '';
+                    document.querySelector("#quiz-options_2").innerHTML = '';
+                    if (questions2.length > 1) {
+                        questions2.shift();
+                        displayQuestion(questions2[0]);
+                    } else {
+                        document.querySelector("#quiz-play-again_2").style.display = "block";
+                    }
+                }
+
+                // Display Stats2
+                function displayStats2() {
+                    document.querySelector("#rate-span_2").innerHTML = stats2.correct2 + "/" + stats2.questions2Asked;
+                    document.querySelector("#streak-span_2").innerHTML = stats2.correct2Streak;
+                    document.querySelector("#response-time-span_2").innerHTML = stats2.averageResponseTime2;
+                }
+
+                // Auxiliary rounding function
+                function round(value, decimals) {
+                    return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+                }
+
+            }
+
+            games2Js();
         }
+        // function showGames2Page() {
+        //     $('body').css("background-image",
+        //         "url('https://hdayat665.github.io/MUZIUM-UM/interactive/bg-home-game.jpg')");
+        //     const fourpanelPage = document.getElementById("games");
+        //     const games2 = document.getElementById("games2");
+
+        //     // Start by fading out the homepage
+        //     games2.style.opacity = "0";
+
+        //     setTimeout(() => {
+        //         fourpanelPage.style.display = "none"; // Hide the homepage
+        //         games2.style.display = "block"; // Show the fourpanel
+        //         games2.style.opacity = "0"; // Start with hidden state
+
+        //         // Ensure a slight delay before fading in
+        //         setTimeout(() => {
+        //             games2.style.opacity = "1";
+        //         }, 50);
+        //     }, 500); // Adjust time to match the CSS transition duration
+
+        //     function games2Js() {
+
+        //         document.addEventListener('DOMContentLoaded', () => {
+        //             // Get the preloader element
+        //             const preloader = document.querySelector('.preloader1');
+
+        //             // Set a timeout for the duration of the animation (e.g., 2.7s + buffer time of 0.3s)
+        //             setTimeout(() => {
+        //                 // Add the 'hidden' class to trigger the fade-out effect
+        //                 preloader.classList.add('hidden');
+
+        //                 // After the fade-out transition, hide the preloader and show the next div
+        //                 setTimeout(() => {
+        //                     // Hide the preloader completely by setting display to 'none'
+        //                     preloader.style.display = 'none';
+
+        //                     // Show the next div (replace '.next-div' with the actual class or id of the next content div)
+        //                     const nextDiv = document.querySelector('.next-div');
+        //                     if (nextDiv) {
+        //                         nextDiv.style.display = 'block';
+        //                     }
+        //                 }, 500); // This timeout matches the fade-out transition time (500ms)
+        //             }, 4000); // Timeout time should match the total animation duration (2.7s + 0.3s buffer)
+        //         });
+
+
+        //         $(function () {
+
+        //             /*
+        //              **********************************************************
+        //              ***    First some setup:                               ***
+        //              ***    Create the answers that the users will drag     ***
+        //              ***    to the appropriate categories.                  ***
+        //              ***    No need to change the "order"                   ***
+        //              ***    element as it is just a placeholder - order     ***
+        //              ***    is randomized later.                            ***
+        //              **********************************************************
+        //              */
+        //             var answers = [{
+        //                 "text": "3 times a day",
+        //                 "order": "1"
+        //             }, {
+        //                 "text": "3 times a day",
+        //                 "order": "2"
+        //             }, {
+        //                 "text": "2 times a day",
+        //                 "order": "3"
+        //             }];
+
+        //             //   {
+        //             //     "text":   "Asparagus",
+        //             //     "order":  "5"
+        //             //   }, {
+        //             //     "text":   "Corn",
+        //             //     "order":  "6"
+        //             //   }, {
+        //             //     "text":   "Windows",
+        //             //     "order":  "7"
+        //             //   }, {
+        //             //     "text":   "Linux",
+        //             //     "order":  "8"
+        //             //   }, {
+        //             //     "text":   "Android",
+        //             //     "order":  "9"
+        //             // }];
+
+
+        //             /*
+        //              **********************************************************
+        //              ***    Now create the three categories to which the    ***
+        //              ***    user will drag their answers                    ***
+        //              **********************************************************
+        //              */
+        //             var subcontainers = [{
+        //                 "text": "Brush your teeth",
+        //                 "id": "fruits"
+        //             }, {
+        //                 "text": "Clean your tongue",
+        //                 "id": "vegetables"
+        //             }, {
+        //                 "text": "Shower",
+        //                 "id": "neverpresent"
+        //             }];
+        //             console.log(subcontainers);
+
+
+
+        //             /*
+        //              **********************************************************
+        //              ***    Now define which answers belong in which        ***
+        //              ***    categories. The numbers here (i.e. the 3 in     ***
+        //              ***    answer3, etc) are derived from the 'order'      ***
+        //              ***    element of the answers[] array.                 ***
+        //              **********************************************************
+        //              */
+        //             var fruits_correct = new Array('answer1', 'answer2');
+        //             var veggies_correct = new Array('answer1', 'answer2');
+        //             var os_correct = new Array('answer3');
+
+        //             /*
+        //              **********************************************************
+        //              ***    NOTE!!! The names of the *_correct arrays and   ***
+        //              ***    the subcontainer ids also have to be changed    ***
+        //              ***    down at the bottom of the score_game()          ***
+        //              ***    function. If anyone wants to help me            ***
+        //              ***    abstract that so they only need to be set       ***
+        //              ***    once, here at the top of the document, that     ***
+        //              ***    would be great.                                 ***
+        //              **********************************************************
+        //              */
+        //             reset_game(); // this initializes the game
+
+        //             $('#game_container #button_container #reset_button').click(function () {
+        //                 reset_game();
+        //             });
+
+        //             $('#game_container #button_container #check_button').click(function () {
+        //                 $("#game_container .qanswer").promise().done(
+        //                     function () { // promise().done() waits for any animations to complete before firing the function
+        //                         score_game
+        //                             (); // this is necessary because any divs that have not yet finished the "drop" animation will not be scored
+        //                     });
+        //             });
+
+        //             $('#game_container #ok_button').click(function () {
+        //                 $('#game_container #message').animate({
+        //                     width: '0',
+        //                     height: '0',
+        //                     padding: '0',
+        //                     opacity: 0
+        //                 }, 1000).hide(1000);
+        //             });
+
+        //             function reset_game() {
+        //                 // empty the divs
+        //                 $('#game_container #draggable_container').html('').removeClass();
+        //                 $('#game_container #droppable_container').html('');
+
+        //                 // enable the "check" button
+        //                 $('#game_container #check_button').removeAttr('disabled');
+
+        //                 // hide the incomplete message and the game score if they are showing
+        //                 $('#game_container #message').hide();
+        //                 $('#game_container #score_container').hide();
+
+        //                 // now place the answer containers on the page and make them accept the dragged answers from above
+        //                 for (var j = 0; j < 3; j++) {
+        //                     $('<div><strong>' + subcontainers[j].text + '</strong></div>').attr('class',
+        //                             'subcontainer')
+        //                         .attr('id', subcontainers[j].id).appendTo(
+        //                             '#game_container #droppable_container')
+        //                         .sortable({
+        //                             containment: "#game_container",
+        //                             cursor: "move",
+        //                             items: "div",
+        //                             revert: 250,
+        //                             connectWith: "#game_container .subcontainer",
+        //                             receive: function (event, ui) {
+        //                                 if (ui.item.parents('#game_container .subcontainer')) {
+        //                                     ui.item.removeClass('dragthis').addClass('dropped');
+        //                                 } else {
+        //                                     ui.item.removeClass('dropped').addClass('dragthis');
+        //                                 }
+        //                             }
+        //                         }).disableSelection();
+        //                 }
+
+        //                 // randomize the order of the answer divs
+        //                 answers.sort(function () {
+        //                     return (Math.round(Math.random()) - 0.5);
+        //                 });
+
+        //                 // place them on the page and make them sortable
+        //                 for (var i = 0; i < answers.length; i++) {
+        //                     $('<div>' + answers[i].text + '</div>').attr('id', 'answer' + answers[i].order)
+        //                         .attr(
+        //                             'class', 'dragthis qanswer').appendTo(
+        //                             '#game_container #draggable_container')
+        //                         .disableSelection();
+        //                 }
+        //                 $("#game_container #draggable_container").sortable({
+        //                     connectWith: '#game_container .subcontainer',
+        //                     containment: '#game_container',
+        //                     cursor: 'move',
+        //                     items: 'div',
+        //                     revert: 250
+        //                 }).disableSelection();
+        //             }
+
+        //             function score_game() {
+        //                 // check to see if they are finished
+        //                 // do this by making sure that #draggable_container is empty
+        //                 if (!$("#game_container #draggable_container").is(":empty")) {
+        //                     // it's not empty! it would be madness to try to calculate this score.
+
+        //                     // fill the message div with text accordingly
+        //                     $('#game_container #message #text').html(
+        //                         'The game is not complete! Please drag all the answers');
+
+        //                     // now we'll animate it growing and appearing. neato
+        //                     $('#game_container #message').show().css({
+        //                         top: $("#game_container #droppable_container").position().top - 50,
+        //                         left: $("#game_container #droppable_container").position().left + 100
+        //                     }).animate({
+        //                         width: '450px',
+        //                         height: '80px',
+        //                         padding: '20px',
+        //                         opacity: 1
+        //                     }, 500);
+
+        //                     // you don't get a score yet. stop here.
+        //                     return;
+        //                 }
+
+        //                 // if we got this far, it means each draggable has been dragged to one of the containers.
+
+        //                 // make the items no longer sortable by disabling them
+        //                 $("#game_container .subcontainer").each(function (index) {
+        //                     $(this).sortable("option", "disabled", true);
+        //                 });
+
+        //                 // also disable the "check" button
+        //                 $('#game_container #button_container #check_button').attr("disabled", "disabled");
+
+
+
+        //                 // go through each and see if it's in the right place
+        //                 $correctcounter = 0; // keep track of how many are right
+        //                 $("#game_container .dropped").each(function (index) {
+        //                     $thisid = $(this).attr('id'); // shortcuts
+        //                     $parentid = $(this).parent().attr('id');
+        //                     $(this).css('cursor',
+        //                         'default'
+        //                     ); // UI helper to help the user know the elements are no longer draggable
+        //                     if ( // big long if statement to see if the element is in the right place
+        //                         ($.inArray($thisid, fruits_correct) > -1 && $parentid == 'fruits') ||
+        //                         ($.inArray($thisid, veggies_correct) > -1 && $parentid ==
+        //                             'vegetables') ||
+        //                         ($.inArray($thisid, os_correct) > -1 && $parentid == 'neverpresent')
+        //                     ) {
+        //                         $(this).addClass('correct', 800).removeClass('dropped',
+        //                             800); // it's in the right place - make it all green and happy
+        //                         $correctcounter++; // +1 to the counter of correct answers
+        //                     } else {
+        //                         $(this).addClass('incorrect', 800).removeClass('dropped',
+        //                             800); // it's in the wrong place - make it all red and sad
+        //                     }
+        //                 });
+
+        //                 // tell the user their score, we'll use the heretofore hidden #score_container div for that.
+        //                 $('#game_container #score_container #score_text').html('You got <span class="score">' +
+        //                     $correctcounter + '</span> out of 3 correct!');
+        //                 $('#game_container #score_container').slideDown(500);
+        //             }
+        //         })
+        //     }
+        //     games2Js();
+
+        // }
 
         function showGames22Page() {
             $('body').css("background-image",
