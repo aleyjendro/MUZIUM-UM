@@ -37,6 +37,7 @@
             pointer-events: none !important;
         }
 
+        #screensaver,
         #homepage,
         #fourpanels,
         #gallery,
@@ -45,10 +46,11 @@
         #games,
         #games1,
         #games2 {
-            transition: opacity 0.9s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
             opacity: 1;
         }
 
+        #screensaver,
         #fourpanels,
         #gallery,
         #5wells,
@@ -73,6 +75,56 @@
 <!-- <body class="bg-fixed home-vcard" style="background-image: url(https://hdayat665.github.io/MUZIUM-UM/shape/banner.jpg);"> -->
 
 <body class="bg-fixed home-vcard">
+
+    <section style="display: none;" id="screensaver">
+        <div class="main-wrapper" data-enter="fadeInLeft" data-exit style="margin-left: 0;">
+            <div class="main-content-area">
+                <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <style>
+                        .fullscreen-image {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100vw;
+                            height: 100%;
+                            object-fit: fill;
+                            z-index: 9999;
+                        }
+                    </style>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss1.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss2.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss3.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss4.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss5.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                        <!-- <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss7.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div> -->
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/ss6.jpg"
+                                class=" fullscreen-image d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section style="display: block;" id="homepage">
         <!-- style="background-image: url(https://hdayat665.github.io/MUZIUM-UM/interactive/bg-gold3.jpg);" -->
@@ -105,8 +157,12 @@
                                                         src="https://hdayat665.github.io/MUZIUM-UM/interactive/logo-topglove.png"
                                                         alt="logo" style="width: 150px;">
                                                 </span>
-                                                <h2>Welcome to<br><span class="shining-text">Tan Sri Dr Lim Wee
-                                                        Chai’s</span><br>Interactive Wall</h2>
+                                                <h2>Welcome to
+                                                    <br>
+                                                    <span class="shining-text" style="font-size: 3.2vw;">
+                                                        Tan Sri Dr Lim Wee Chai’s
+                                                    </span>
+                                                    <br>Interactive Wall</h2>
                                                 <h3 class="title">
                                                     <div class="area-quote">
                                                         <img src="https://hdayat665.github.io/MUZIUM-UM/interactive/frame-quote.png"
@@ -279,6 +335,7 @@
 
                     .text-red {
                         color: red;
+                        font-weight: bold;
                     }
 
                     .blink-hard {
@@ -2290,7 +2347,8 @@
                         <div class="modal fade project-details" id="popphilo3" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
                                 <div class="modal-content">
-                                    <div class="modal-body" style="overflow-y: hidden;">
+                                    <!-- style="overflow-y: hidden;" -->
+                                    <div class="modal-body" >
 
                                         <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -2455,7 +2513,8 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body text-center" style="overflow-y: hidden;">
+                                    <!-- style="overflow-y: hidden;" -->
+                                    <div class="modal-body text-center" >
                                         <img style="position: absolute; width: 5%; left: 94%;"
                                             src="https://hdayat665.github.io/MUZIUM-UM/logo/arrow-sticker-thumb13.png"
                                             alt="">
@@ -3137,8 +3196,8 @@
                         <div class="modal fade project-details" id="popphilo5" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
                                 <div class="modal-content">
-
-                                    <div class="modal-body" style="overflow-y: hidden;">
+                                    <!-- style="overflow-y: hidden;" -->
+                                    <div class="modal-body" >
 
                                         <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -3254,8 +3313,8 @@
                         <div class="modal fade project-details" id="popphilo6" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen">
                                 <div class="modal-content">
-
-                                    <div class="modal-body" style="overflow-y: hidden;">
+                                    <!-- style="overflow-y: hidden;" -->
+                                    <div class="modal-body" >
 
                                         <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -3865,6 +3924,112 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" language="javascript" src="matchgame.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <!-- screen saver function -->
+    <script>
+        const targetElement = document.getElementById('homepage');
+        const observer = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                    // Use getComputedStyle to handle external styles
+                    const displayStyle = window.getComputedStyle(targetElement).display;
+
+                    if (displayStyle === 'block') {
+                        console.log('block');
+
+                        // Define screensaver function
+                        function screensaver() {
+                            const screensaver = document.getElementById("screensaver");
+
+                            // Only show the screensaver if homepage is still visible
+                            const displayStyle = window.getComputedStyle(targetElement).display;
+                            if (displayStyle === 'block') {
+                                const sections = ['homepage', 'gallery', '5wells', 'philo', 'games', 'games1',
+                                    'games2', 'games22', 'games23', 'fourpanels'
+                                ];
+
+                                // Fade out visible sections
+                                sections.forEach(sectionId => {
+                                    const section = document.getElementById(sectionId);
+                                    if (section) {
+                                        section.style.opacity = "0";
+                                        setTimeout(() => (section.style.display = "none"), 500);
+                                    }
+                                });
+
+                                // Show screensaver
+                                screensaver.style.display = "block";
+                                screensaver.style.opacity = "0"; // Start hidden
+                                setTimeout(() => (screensaver.style.opacity = "1"), 50);
+                            }
+                        }
+
+                        // Idle timeout handling
+                        (function () {
+                            const idleDurationSecs = 120;
+                            let idleTimeout;
+
+                            const resetIdleTimeout = function () {
+                                if (idleTimeout) clearTimeout(idleTimeout);
+                                idleTimeout = setTimeout(screensaver, idleDurationSecs * 1000);
+                            };
+
+                            // Reset screensaver on user activity
+                            const resetScreensaver = function () {
+                                // Check if homepage is visible before resetting
+                                const displayStyle = window.getComputedStyle(targetElement).display;
+                                const screensaverStyle = window.getComputedStyle(document
+                                    .getElementById('screensaver')).display;
+
+                                // Only reset if homepage is visible and screensaver is currently displayed
+                                if (displayStyle == 'none' && screensaverStyle === 'block') {
+                                    const screensaver = document.getElementById("screensaver");
+                                    const sections = ['homepage'];
+
+                                    // Hide the screensaver
+                                    screensaver.style.opacity = "0";
+                                    setTimeout(() => (screensaver.style.display = "none"), 500);
+
+                                    // Reset sections visibility
+                                    sections.forEach(sectionId => {
+                                        const section = document.getElementById(sectionId);
+                                        if (section) {
+                                            section.style.display = "block";
+                                            section.style.opacity = "1";
+                                        }
+                                    });
+
+                                    resetIdleTimeout();
+                                }
+                            };
+
+                            // Attach event listeners for user activity
+                            ['click', 'touchstart', 'mousemove'].forEach(evt => {
+                                document.addEventListener(evt, resetScreensaver, false);
+                            });
+
+                            // Initialize idle timeout
+                            resetIdleTimeout();
+                        })();
+                    } else {
+                        console.log('none');
+                    }
+                }
+            }
+        });
+
+        // Observer configuration to monitor style changes
+        const config = {
+            attributes: true, // Observe attribute changes
+            attributeFilter: ['style'], // Only watch the 'style' attribute
+        };
+
+        // Start observing the target element
+        observer.observe(targetElement, config);
+
+        console.log('Observer is now watching for style changes on #homepage');
+    </script>
+    <!-- screen saver function -->
 
     <!-- disabled cp and select  -->
     <script>
