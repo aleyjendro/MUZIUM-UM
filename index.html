@@ -3801,53 +3801,55 @@
     <!-- disabled cp and select  -->
     <script>
         $(function () {
-            $(this).bind("contextmenu", function (e) {
+            // Disable right-click context menu globally
+            $(document).on("contextmenu", function (e) {
                 e.preventDefault();
             });
-        });
-        (function ($) {
 
-            $.fn.ctrl = function (key, callback) {
+            // Disable drag and drop
+            $(document).on("dragstart", function (e) {
+                e.preventDefault();
+            });
 
-                if (!$.isArray(key)) {
-                    key = [key];
-                }
-                callback = callback || function () {
-                    return false;
-                }
-                return $(this).keydown(function (e) {
-
-                    $.each(key, function (i, k) {
-                        if (e.keyCode == k.toUpperCase().charCodeAt(0) && e.ctrlKey) {
-                            return callback(e);
-                        }
-                    });
-                    return true;
-                });
-            };
-
-
-            $.fn.disableSelection = function () {
-
-                this.ctrl(['a', 's', 'c']);
-
-                return this.attr('unselectable', 'on')
-                    .css({
-                        '-moz-user-select': '-moz-none',
-                        '-moz-user-select': 'none',
-                        '-o-user-select': 'none',
-                        '-khtml-user-select': 'none',
-                        '-webkit-user-select': 'none',
-                        '-ms-user-select': 'none',
-                        'user-select': 'none'
-                    })
-                    .bind('selectstart', function () {
+            (function ($) {
+                // Function to bind Ctrl+key combinations
+                $.fn.ctrl = function (keys, callback) {
+                    if (!Array.isArray(keys)) {
+                        keys = [keys];
+                    }
+                    callback = callback || function () {
                         return false;
+                    };
+                    return this.on("keydown", function (e) {
+                        $.each(keys, function (_, key) {
+                            if (e.key.toUpperCase() === key.toUpperCase() && e
+                                .ctrlKey) {
+                                callback(e);
+                            }
+                        });
+                        return true;
                     });
-            };
+                };
 
-        })(jQuery);
-        $(':not(input,select,textarea,a,button)').disableSelection();
+                // Function to disable text selection
+                $.fn.disableSelection = function () {
+                    this.ctrl(["a", "s", "c"]); // Disable Ctrl+A, Ctrl+S, and Ctrl+C
+                    return this.attr("unselectable", "on")
+                        .css({
+                            "-moz-user-select": "none",
+                            "-webkit-user-select": "none",
+                            "-ms-user-select": "none",
+                            "user-select": "none"
+                        })
+                        .on("selectstart", function () {
+                            return false;
+                        });
+                };
+            })(jQuery);
+
+            // Apply text selection disable on non-input elements
+            $(":not(input, select, textarea, button)").disableSelection();
+        });
     </script>
     <!-- end disabled cp and select  -->
 
