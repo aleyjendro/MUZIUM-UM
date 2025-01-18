@@ -102,10 +102,10 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
   }
   .quiz-ans-btn:hover { color: #fff; background-color: #476b6b; }
   .btn.quiz-ans-btn:active, .btn.quiz-ans-btn:focus { color: #fff; background-color: #334d4d; }
-  .quiz-ans-btn.correct {
+  .quiz-ans-btn.correct2 {
     background-color: #11afaf;
   }
-  .quiz-ans-btn.incorrect {
+  .quiz-ans-btn.incorrect2 {
     background-color: #e60000;
   }
   #quiz-play-again_2 {
@@ -170,13 +170,13 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
       }
   
       /* Correct Answer */
-      .correct {
+      .correct2 {
         background-color: green !important;
         animation: pulse 1s ease-out;
       }
   
       /* Incorrect Answer */
-      .incorrect {
+      .incorrect2 {
         background-color: red !important;
         animation: shake 0.5s ease-in-out;
       }
