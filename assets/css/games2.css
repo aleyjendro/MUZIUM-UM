@@ -82,7 +82,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
   #quiz-options_2 {
     margin: 26px 0;
   }
-  .quiz-ans-btn {
+  .quiz-ans-btn2 {
       font-size: 20px;
     color: #fff;
   /*   display: block;   */
@@ -141,7 +141,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
     #quiz-stats_2 .fa-bar-chart { font-size: 54px; }  
     #quiz-question_2 { font-size: 16px; margin: 20px 0 14px 0; }  
     #quiz-options_2 { margin: 14px 0 20px 0; } 
-    .quiz-ans-btn { font-size: 16px; min-height: 65px; }  
+    .quiz-ans-btn2 { font-size: 16px; min-height: 65px; }  
     #quiz-play-again-btn_2 {  font-size: 28px; width: 66%; }
   }
   
@@ -152,7 +152,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
         margin-bottom: 20px;
       }
   
-      .quiz-ans-btn {
+      .quiz-ans-btn2 {
         background-color: #4CAF50;
         color: white;
         border: none;
@@ -164,7 +164,7 @@ button, button:hover, button:active, button:focus, button:visited, .btn, .btn:ho
         transition: background-color 0.3s;
       }
   
-      .quiz-ans-btn:disabled {
+      .quiz-ans-btn2:disabled {
         background-color: #ccc;
         cursor: not-allowed;
       }
